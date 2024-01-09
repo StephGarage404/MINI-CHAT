@@ -1,0 +1,84 @@
+body
+{ 
+    background: linear-gradient(
+    #000000,
+    hsl(0, 0%, 13%), 
+    #323232,
+    #575757,
+    #797878
+    );
+
+    background-repeat: no-repeat;
+    height: 1000px;
+    
+
+    
+}
+
+.Card
+{
+    background: linear-gradient( 
+    #4400D5,
+    #5519D5,
+    #6F40D5,
+    #6939CF,
+    #4D11CD,
+    #5B21D7);
+
+    height: 800px;
+    width: 80%;
+    border-radius: 25px;
+    margin-left: 10%; 
+    
+}
+
+.title
+{
+    
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.tchat
+{
+    background-color: #000000;
+  
+    border-radius: 25px;
+}
+
+.user
+{
+    background-color: #000000;
+    border-radius: 25px;
+    height: 50%;
+}
+
+
+.peopletalking img{
+
+    height: 109px;
+    width: 177px;
+}
+
+.peopletalking {
+
+    width: 100%;
+}
+
+
+.mclaren img{
+
+    height: 133px;
+    width:380px;
+    opacity: 83%;
+}
+
+.titre
+{
+   display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    color: #5100ff;
+}
+
