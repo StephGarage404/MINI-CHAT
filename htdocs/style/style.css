@@ -76,9 +76,14 @@ body
 
 .titre
 {
-   display: flex;
+    display: flex;
     justify-content: flex-end;
     width: 100%;
     color: #5100ff;
 }
 
+/* .commente
+{
+   
+
+} */

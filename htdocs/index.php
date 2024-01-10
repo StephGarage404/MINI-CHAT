@@ -1,3 +1,22 @@
+<?php
+session_start();
+include "./settings/superglobale-verif.php";
+include "./settings/connexion.php";
+
+// $preparedRequest =  $mysqlClient->prepare(
+//     "SELECT * FROM message 
+//     JOIN user
+//         ON user.id = message.user_id
+//     ORDER BY message.created_at ASC
+//     "
+// );
+// $preparedRequest->execute();
+// $messages = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +30,7 @@
 </head>
 <body>
     
+    
 
     <header>
 
@@ -20,20 +40,17 @@
             <div class="container d-flex justify-content-end">
                 
 
+                <form action="./process/user_identif.php" method="post">
+                    <button class="navbar-brand bg-transparent text-white" type="submit">Se connecter</button>
+                    <input class="me-5"type="text" name="userName">
 
-                <a class="navbar-brand text-white" href="#">Se connecter</a>
-                    
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                </form>
+
+            <form action="./process/session_leave.php" method="post">
             
-
-                <a class="navbar-brand text-white" href="#">S'inscrire</a>
+                <button class="navbar-brand text-white" type="submit">Deconnexion</button>
                     
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
+            </form>
              </div>
 
         </nav>
@@ -78,11 +95,28 @@
 
                 <div class="tchat row mx-5">
 
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex saepe nam doloremque cupiditate nesciunt odio laborum nostrum tempore vero aliquid corrupti cum inventore, fugiat, ea voluptate atque dolor? Quo, ratione.
+                    <?php
+                    foreach ($variable as $key => $value) {
+                        ?><div><?= "salut";   ?></div><?php
+                    }
+
+                    ?>
+
                 </div>
 
                 <div class="row mclaren">
                         <img src="./images/pngegg(6).png" alt="mclaren rouge et noir">
+                </div>
+
+                <div class="row commente">
+
+                    <form action="#" class="d-flex" role="search">
+                        <input class="form-control me-2"  placeholder="Participer à la disscussion..." aria-label="Search">
+                        <button class="btn btn-danger" type="submit">Envoyer</button>
+                    </form>
+
+                  
+
                 </div>
 
             </div>
