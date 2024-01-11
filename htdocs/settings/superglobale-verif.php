@@ -8,7 +8,7 @@ function dumpArray(array $nested_arrays): void {
                 . $key . '</span> : '
                 . $value . '</li>');
         } else {
-            /* ignore same level recursion */
+           
             if ($nested_arrays !== $value) {
                 echo ('<details><summary style="color : tomato; font-weight : bold;">'
                     . $key . '<span style="color : steelblue;font-weight : 100;"> ('

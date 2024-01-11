@@ -47,11 +47,17 @@ body
     border-radius: 25px;
 }
 
+.blockuser{
+
+    height: 300px;
+    overflow-y: scroll;
+}
+
 .user
 {
     background-color: #000000;
     border-radius: 25px;
-    height: 50%;
+    height: 40px;
 }
 
 

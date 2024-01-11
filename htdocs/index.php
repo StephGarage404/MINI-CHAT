@@ -1,19 +1,19 @@
 <?php
 session_start();
 include "./settings/superglobale-verif.php";
-include "./settings/connexion.php";
+require "./settings/connexion.php";
 
-// $preparedRequest =  $mysqlClient->prepare(
-//     "SELECT * FROM message 
-//     JOIN user
-//         ON user.id = message.user_id
-//     ORDER BY message.created_at ASC
-//     "
-// );
-// $preparedRequest->execute();
-// $messages = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
+$selectusers = 'SELECT * FROM user';
+    $add_users = $mysqlClient->query($selectusers);
+    $users = $add_users->fetchAll(PDO::FETCH_ASSOC);
 
 
+$preparedRequest =  $mysqlClient->prepare(
+     "SELECT * FROM message  
+        JOIN user
+        ON message.id_user = user.id");
+ $preparedRequest->execute();
+ $messages = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -89,18 +89,19 @@ include "./settings/connexion.php";
 
         <div class="row mt-5">
 
-            <!-- DEBUT CODE PARTIE DROITE!-->
+            <!-- DEBUT CODE PARTIE GAUCHE!-->
 
             <div class="col col-6">
 
-                <div class="tchat row mx-5">
+                <div class="row mx-5">
 
                     <?php
-                    foreach ($variable as $key => $value) {
-                        ?><div><?= "salut";   ?></div><?php
-                    }
+                    foreach ($messages as $ok) {
 
+                        ?><div class="tchat"> <?= $ok['message_user']?></div><?php
+                    }
                     ?>
+
 
                 </div>
 
@@ -110,8 +111,10 @@ include "./settings/connexion.php";
 
                 <div class="row commente">
 
-                    <form action="#" class="d-flex" role="search">
-                        <input class="form-control me-2"  placeholder="Participer à la disscussion..." aria-label="Search">
+                    <form action="./process/new-comment.php" class="d-flex" role="search" method="post">
+
+                        <input class="form-control me-2" name="chat" placeholder="Participer à la disscussion..." aria-label="Search">
+                        <input type="hidden" name="adress-ip" value="<?php $_SERVER['REMOTE_ADDR']?>">      
                         <button class="btn btn-danger" type="submit">Envoyer</button>
                     </form>
 
@@ -136,11 +139,17 @@ include "./settings/connexion.php";
             <!-- FIN CODE PARTIE MILIEU!-->
                 
 
-            <!-- DEBUT CODE PARTIE GAUCHE!-->
+            <!-- DEBUT CODE PARTIE DROITE!-->
 
             <div class="col col-4">
-                <div class="user">
-                   <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita necessitatibus aut distinctio iusto rem repellendus. Quibusdam nesciunt illo aperiam id alias fugit voluptates, error vel explicabo, hic veniam dolores tempore.</p>
+                <div class="blockuser">
+                    <?php
+
+                        foreach ($users as $value) {
+                            ?> <div class="user"> <?=$value['pseudo']?> </div> <?php 
+                        }
+
+                    ?>
                 </div>
             </div>
             <!-- FIN CODE PARTIE GAUCHE!-->
