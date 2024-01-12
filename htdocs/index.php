@@ -100,11 +100,8 @@ $preparedRequest =  $mysqlClient->prepare(
 
                 <div class="row mx-5">
 
-                    <ul>
-                        <li>
-
-
-                        </li>
+                    <ul id="passMessage">
+                       
                     </ul>
 
                 <?php
