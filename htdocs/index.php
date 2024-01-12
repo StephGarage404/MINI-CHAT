@@ -15,6 +15,11 @@ $preparedRequest =  $mysqlClient->prepare(
  $preparedRequest->execute();
  $messages = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
 
+
+// ESSAIE RANDOM COLOR
+
+//  $color = dechex(rand(0x000000, 0xFFFFFF));
+
 ?>
 
 <!DOCTYPE html>
@@ -95,11 +100,18 @@ $preparedRequest =  $mysqlClient->prepare(
 
                 <div class="row mx-5">
 
-                    <?php
-                    foreach ($messages as $ok) {
+                    <ul>
+                        <li>
+
+
+                        </li>
+                    </ul>
+
+                <?php
+                   /* foreach ($messages as $ok) {
 
                         ?><div class="tchat"> <?= $ok['message_user']?></div><?php
-                    }
+                    }*/
                     ?>
 
 
@@ -112,8 +124,8 @@ $preparedRequest =  $mysqlClient->prepare(
                 <div class="row commente">
 
                     <form action="./process/new-comment.php" class="d-flex" role="search" method="post">
-
-                        <input class="form-control me-2" name="chat" placeholder="Participer à la disscussion..." aria-label="Search">
+                        
+                        <input class="form-control me-2" name="chat" id="chat" placeholder="Participer à la disscussion..." aria-label="Search">
                         <input type="hidden" name="adress-ip" value="<?php $_SERVER['REMOTE_ADDR']?>">      
                         <button class="btn btn-danger" type="submit">Envoyer</button>
                     </form>
@@ -124,13 +136,13 @@ $preparedRequest =  $mysqlClient->prepare(
 
             </div>
 
-            <!-- FIN CODE PARTIE DROITE!-->
+            <!-- FIN CODE PARTIE GAUCHE!-->
 
 
             <!-- DEBUT CODE PARTIE MILIEU!-->
 
            
-                <div class="col col-2 barredemerde ps-5">
+                <div class="col col-2 ps-5">
                     <div class="vr" style="height: 450px; width: 3px;"></div>        
                 </div>
 
@@ -152,7 +164,7 @@ $preparedRequest =  $mysqlClient->prepare(
                     ?>
                 </div>
             </div>
-            <!-- FIN CODE PARTIE GAUCHE!-->
+            <!-- FIN CODE PARTIE DROITE!-->
 
         </div>
 
@@ -165,15 +177,11 @@ $preparedRequest =  $mysqlClient->prepare(
 
 
 
-
-
-
-
     <footer>
 
         
     </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   
 </html>

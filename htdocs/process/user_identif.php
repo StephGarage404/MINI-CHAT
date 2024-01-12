@@ -2,7 +2,7 @@
 session_start();
 
 
-if (!empty($_POST['userName']) ) {
+if (!empty($_POST['userName'])) {
 
         require_once '../settings/connexion.php';
 
@@ -18,8 +18,9 @@ if (!empty($_POST['userName']) ) {
         if (!empty($uniqueUser['pseudo'])) {
 
 
-            $_SESSION['user'] = $uniqueUser['pseudo'];
 
+            $_SESSION['user'] = $uniqueUser['pseudo'];
+           
 
         }else{
             $preparedRequest = $mysqlClient->prepare(
@@ -34,18 +35,5 @@ if (!empty($_POST['userName']) ) {
             ;}
 }
 
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Redirection automatique en HTML</title>
 
-<meta http-equiv="refresh" content="1; URL=../index.php">
-</head>
-
-<body>
- <p>Vous serez redirigé vers une nouvelle page dans 1 secondes.</p>
-</body>
-
-</html>
