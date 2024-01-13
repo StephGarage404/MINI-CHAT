@@ -2,7 +2,7 @@
     require_once "../settings/connexion.php"; 
 
     $preparedRequest = $mysqlClient->prepare(
-        "SELECT * FROM message"
+        "SELECT * FROM message INNER JOIN user ON message.id_user = user.id;"
     );
 
     $preparedRequest->execute();

@@ -62,7 +62,7 @@ $preparedRequest =  $mysqlClient->prepare(
 
     </header>
 
-
+<div style="color: red;font-size:40">AJOUTER COLONNE COLOR DANS TABLE USER</div>
 
     <section class="Card p-3 text-white ">
 
@@ -98,12 +98,8 @@ $preparedRequest =  $mysqlClient->prepare(
 
             <div class="col col-6">
 
-                <div class="row mx-5">
-
-                    <ul id="passMessage">
-                       
-                    </ul>
-
+                <div class="row mx-5" id="passMessage">
+ 
                 <?php
                    /* foreach ($messages as $ok) {
 
@@ -120,10 +116,13 @@ $preparedRequest =  $mysqlClient->prepare(
 
                 <div class="row commente">
 
-                    <form action="./process/new-comment.php" class="d-flex" role="search" method="post">
+                    <form action="./process/new-comment.php" class="d-flex" role="search" method="post" id="NewChatForm">
                         
                         <input class="form-control me-2" name="chat" id="chat" placeholder="Participer à la disscussion..." aria-label="Search">
-                        <input type="hidden" name="adress-ip" value="<?php $_SERVER['REMOTE_ADDR']?>">      
+                        <!--  $_SERVER contient des informations système gérées par leur serveur
+                            Dans notre cas, on récupère l'addresse IP du pc qui a ouvert la page index.php
+                          -->
+                        <input type="hidden" name="adress-ip" id="adress-ip" value="<?php $_SERVER['REMOTE_ADDR']?>">      
                         <button class="btn btn-danger" type="submit">Envoyer</button>
                     </form>
 
@@ -155,7 +154,7 @@ $preparedRequest =  $mysqlClient->prepare(
                     <?php
 
                         foreach ($users as $value) {
-                            ?> <div class="user"> <?=$value['pseudo']?> </div> <?php 
+                            ?> <div class="user" style="color:<?=$value['color']?>"> <?=$value['pseudo']?> </div> <?php 
                         }
 
                     ?>
@@ -181,4 +180,6 @@ $preparedRequest =  $mysqlClient->prepare(
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
    
+    <script src="./JS/app.js"></script>
+
 </html>

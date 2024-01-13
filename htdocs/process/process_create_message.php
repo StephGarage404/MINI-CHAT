@@ -1,19 +1,23 @@
 <?php
 
-include '../config/debug.php';
+include '../config/debug.php'; 
+session_start();
 
-if (!empty($_POST['content'])) {
+if (!empty($_POST['chat'])) {
 
     require_once '../settings/connexion.php';
 
     $preparedRequest = $mysqlClient->prepare(
-        "INSERT INTO message (chat, created_at) VALUES (?,?)"
+        "INSERT INTO message (created_at, id_user, message_user, ip_adress) VALUES (?,?,?,?)"
     );
 
     $preparedRequest->execute([
+        date("Y-m-d H:i:s"),
+        $_SESSION['iduser'],
         $_POST['chat'],
-        date("Y-m-d H:i:s")
+        $_POST['adress-ip']
     ]);
+ 
 
 }
 
